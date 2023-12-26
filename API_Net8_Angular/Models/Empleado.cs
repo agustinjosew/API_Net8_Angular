@@ -44,6 +44,12 @@ namespace GestionRecursosHumanos.API.Models
         /// </summary>
         [BsonElement("departamento")]
         public ObjectId DepartamentoId { get; set; }
+
+        /// <summary>
+        /// Obtiene o establece el ID del puesto que tiene asociado el empleado de manera especifica.
+        /// </summary>
+        [BsonElement("puesto")]
+        public ObjectId PuestoId { get; set; }
     }
 
 }

@@ -1,5 +1,8 @@
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using MongoDB.Driver;
+using Microsoft.Extensions.Options;
+using GestionRecursosHumanos.API.Databases;
 
 namespace GestionRecursosHumanos.API
 {
@@ -10,6 +13,25 @@ namespace GestionRecursosHumanos.API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.Configure<MongoDBSettings>(
+                builder.Configuration.GetSection("MongoDB"));
+
+            builder.Services.AddSingleton<IMongoClient>(
+                ServiceProvider =>
+            {
+                var settings = ServiceProvider.GetRequiredService<IOptions<MongoDBSettings>>().Value;
+                return new MongoClient(settings.ConnectionString);
+            });
+
+            builder.Services.AddScoped<IMongoDatabase>(
+                ServiceProvider =>
+            {
+                var settings = ServiceProvider.GetRequiredService<IOptions<MongoDBSettings>>().Value;
+                var client = ServiceProvider.GetRequiredService<IMongoClient>();
+                return client.GetDatabase(settings.DatabaseName);
+            });
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -1,7 +1,7 @@
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
-namespace API_Net8_Angular
+namespace GestionRecursosHumanos.API
 {
     public class Program
     {

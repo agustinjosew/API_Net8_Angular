@@ -7,17 +7,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["API_Net8_Angular.csproj", "."]
-RUN dotnet restore "./././API_Net8_Angular.csproj"
+COPY ["GestionRecursosHumanos.API.csproj", "."]
+RUN dotnet restore "./././GestionRecursosHumanos.API.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "./API_Net8_Angular.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./GestionRecursosHumanos.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./API_Net8_Angular.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./GestionRecursosHumanos.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "API_Net8_Angular.dll"]
+ENTRYPOINT ["dotnet", "GestionRecursosHumanos.API.dll"]

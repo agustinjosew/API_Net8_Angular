@@ -17,3 +17,5 @@ Esta característica es particularmente útil en modelos donde ciertos campos so
 El atributo [BsonElement("nombre")] indica que, al serializar o deserializar este objeto a o desde BSON (Binary JSON), utilizado por ejemplo en MongoDB, la propiedad Nombre se mapeará al campo nombre en la representación BSON.
 
 El uso de required ayuda a prevenir errores en tiempo de ejecución relacionados con valores nulos y asegura que los objetos sean utilizados de manera que cumplan con las expectativas de sus definiciones. Además, mejora la legibilidad del código, ya que proporciona una indicación explícita de las propiedades que son esenciales para el funcionamiento correcto de la clase.
+
+![image](https://github.com/agustinjosew/API_Net8_Angular/assets/76487325/d48f56f0-a517-4be6-9b64-535c79c8547f)

@@ -18,6 +18,8 @@ namespace GestionRecursosHumanos.API.Mappings
                 .ForMember(dest => dest.DepartamentoId, opt => opt.MapFrom(src => IsValidObjectId(src.DepartamentoId) ? ObjectId.Parse(src.DepartamentoId) : ObjectId.Empty))
                 .ForMember(dest => dest.PuestoId, opt => opt.MapFrom(src => IsValidObjectId(src.PuestoId) ? ObjectId.Parse(src.PuestoId) : ObjectId.Empty));
 
+            CreateMap<Departamento, DepartamentoDTO>().ReverseMap();
+
         }
 
         private static bool IsValidObjectId(string id)

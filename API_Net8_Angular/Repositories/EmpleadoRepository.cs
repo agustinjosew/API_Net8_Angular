@@ -19,24 +19,33 @@ namespace GestionRecursosHumanos.API.Repositories
             return await _empleados.Find(empleado => true).ToListAsync();
         }
 
-        Task IEmpleadoRepository.AddAsync(Empleado empleado)
+        public async Task AddAsync(Empleado empleado)
         {
-            throw new NotImplementedException();
+            await _empleados.InsertOneAsync(empleado);
         }
 
-        Task IEmpleadoRepository.DeleteAsync(string id)
+        async Task IEmpleadoRepository.DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Empleado>.Filter.Eq(empleado => empleado.Id, id);
+            await _empleados.DeleteOneAsync(filter);
+        
         }
 
-        Task<Empleado> IEmpleadoRepository.GetByIdAsync(string id)
+        public async Task<Empleado> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Empleado>.Filter.Eq(empleado => empleado.Id, id);
+            return await _empleados.Find(filter).FirstOrDefaultAsync();
         }
 
-        Task IEmpleadoRepository.UpdateAsync(string id, Empleado empleado)
+        public async Task UpdateAsync(string id, Empleado empleado)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Empleado>.Filter.Eq(e => e.Id, id);
+
+            var update = Builders<Empleado>.Update
+                .Set(e => empleado.Apellido, empleado.Apellido) 
+                .Set(empleado => empleado.Cargo, empleado.Cargo); 
+
+            await _empleados.UpdateOneAsync(filter, update);
         }
     }
 }

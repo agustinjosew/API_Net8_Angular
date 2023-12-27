@@ -4,6 +4,10 @@ using MongoDB.Driver;
 using Microsoft.Extensions.Options;
 using GestionRecursosHumanos.API.Databases;
 using GestionRecursosHumanos.API.Mappings;
+using GestionRecursosHumanos.API.Services.Interfaces;
+using GestionRecursosHumanos.API.Services;
+using GestionRecursosHumanos.API.Repositories.Interfaces;
+using GestionRecursosHumanos.API.Repositories;
 
 namespace GestionRecursosHumanos.API
 {
@@ -40,6 +44,9 @@ namespace GestionRecursosHumanos.API
                 return client.GetDatabase(settings.DatabaseName);
             });
             builder.Services.AddAutoMapper(typeof(PerfilDeMapeo));
+
+            builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
+            builder.Services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
 
 
             builder.Services.AddControllers();

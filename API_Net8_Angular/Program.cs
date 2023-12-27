@@ -3,6 +3,7 @@ using System.Reflection;
 using MongoDB.Driver;
 using Microsoft.Extensions.Options;
 using GestionRecursosHumanos.API.Databases;
+using GestionRecursosHumanos.API.Mappings;
 
 namespace GestionRecursosHumanos.API
 {
@@ -38,10 +39,10 @@ namespace GestionRecursosHumanos.API
                 var client = ServiceProvider.GetRequiredService<IMongoClient>();
                 return client.GetDatabase(settings.DatabaseName);
             });
+            builder.Services.AddAutoMapper(typeof(PerfilDeMapeo));
 
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {

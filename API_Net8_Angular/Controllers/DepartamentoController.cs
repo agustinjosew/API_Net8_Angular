@@ -1,6 +1,4 @@
 ﻿using GestionRecursosHumanos.API.DTOs;
-using GestionRecursosHumanos.API.Models;
-using GestionRecursosHumanos.API.Services;
 using GestionRecursosHumanos.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

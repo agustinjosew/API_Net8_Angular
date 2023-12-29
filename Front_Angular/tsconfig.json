@@ -22,7 +22,9 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    // agregado manualmente para evitar la comprobación estricta de TypeScript para propiedades de clase que pueden no ser inicializadas.
+    //"strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

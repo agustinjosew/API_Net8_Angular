@@ -1,1 +1,6 @@
-<p>empleado-list works!</p>
+<!-- src/app/components/empleado-list/empleado-list.component.html -->
+<ul *ngIf="empleados">
+  <li *ngFor="let empleado of empleados">
+    {{ empleado.nombre }} {{ empleado.apellido }} - {{ empleado.cargo }}
+  </li>
+</ul>

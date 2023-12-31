@@ -1,1 +1,19 @@
-<p>empleado-form works!</p>
+<!-- src/app/components/empleado-form/empleado-form.component.html -->
+<form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" formControlName="nombre">
+    <div *ngIf="empleadoForm.controls['nombre'].errors?.['required']">
+      El nombre es requerido.
+    </div>
+  </div>
+  <div>
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" formControlName="apellido">
+    <div *ngIf="empleadoForm.controls['apellido'].errors?.['required']">
+      El apellido es requerido.
+    </div>
+  </div>
+  <!-- Repetir para cada campo del formulario -->
+  <button type="submit" [disabled]="!empleadoForm.valid">Guardar</button>
+</form>

@@ -1,0 +1,14 @@
+{
+  //Esta configuración redirige todas las solicitudes que comienzan con /api a http://localhost:7229,
+  //que es donde se ejecuta mi backend con docker.
+  //pathRewrite es opcional y se utiliza si queremos eliminar el prefijo /api antes de que la solicitud llegue al servidor backend.
+
+  "/api": {
+    "target": "http://localhost:7229",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

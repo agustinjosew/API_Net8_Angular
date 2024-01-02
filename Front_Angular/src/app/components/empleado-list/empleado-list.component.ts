@@ -26,6 +26,6 @@ export class EmpleadoListComponent implements OnInit {
     // implementar la lógica para eliminar un empleado
   }
 
-  displayedColumns: string[] = ['nombre', 'apellido', 'cargo', 'acciones'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'cargo', 'email', 'acciones'];
 
 }

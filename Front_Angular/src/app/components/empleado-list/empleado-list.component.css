@@ -1,9 +1,14 @@
 /* src/app/components/empleado-list/empleado-list.component.css */
-ul {
-  list-style-type: none;
-  padding: 0;
+/* empleado-list.component.css */
+.mat-elevation-z8 {
+  margin: 20px;
+  overflow: auto;
 }
-li {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+
+.mat-header-cell, .mat-cell {
+  padding: 8px;
+}
+
+button {
+  margin-right: 8px;
 }

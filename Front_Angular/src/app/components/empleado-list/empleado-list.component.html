@@ -1,38 +1,42 @@
 <!-- src/app/components/empleado-list/empleado-list.component.html -->
 <mat-table [dataSource]="empleados" class="mat-elevation-z8">
-
-  <!-- Columnas a mostrar -->
+  <!-- Nombre  -->
   <ng-container matColumnDef="nombre">
     <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
     <mat-cell *matCellDef="let empleado"> {{empleado.nombre}} </mat-cell>
   </ng-container>
 
+  <!-- Apellido  -->
   <ng-container matColumnDef="apellido">
     <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
     <mat-cell *matCellDef="let empleado"> {{empleado.apellido}} </mat-cell>
   </ng-container>
 
+  <!-- Cargo  -->
   <ng-container matColumnDef="cargo">
     <mat-header-cell *matHeaderCellDef> Cargo </mat-header-cell>
     <mat-cell *matCellDef="let empleado"> {{empleado.cargo}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="acciones">
-    <mat-header-cell *matHeaderCellDef> acciones </mat-header-cell>
-    <mat-cell *matCellDef="let empleado"> {{empleado.acciones}} </mat-cell>
+  <!-- Email  -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let empleado"> {{empleado.email}} </mat-cell>
   </ng-container>
 
-  <!-- Definicion de columnas -->
+  <!-- Acciones  -->
+  <ng-container matColumnDef="acciones">
+    <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+    <mat-cell *matCellDef="let empleado">
+      <button mat-button (click)="editarEmpleado(empleado)">Editar</button>
+      <button mat-button (click)="eliminarEmpleado(empleado.id)">Eliminar</button>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Definiciones de Columnas -->
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<ng-container matColumnDef="acciones">
-  <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
-  <mat-cell *matCellDef="let empleado">
-    <button mat-button (click)="editarEmpleado(empleado)">Editar</button>
-    <button mat-button (click)="eliminarEmpleado(empleado.id)">Eliminar</button>
-  </mat-cell>
-</ng-container>
 
 

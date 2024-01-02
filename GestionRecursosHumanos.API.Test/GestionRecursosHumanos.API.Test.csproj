@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\API_Net8_Angular\GestionRecursosHumanos.API.csproj" />
+    <ProjectReference Include="..\GestionRecursosHumanos.API\GestionRecursosHumanos.API.csproj" />
   </ItemGroup>
 
 </Project>

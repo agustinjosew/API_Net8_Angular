@@ -17,4 +17,15 @@ export class EmpleadoListComponent implements OnInit {
       this.empleados = data;
     });
   }
+
+  editarEmpleado(empleado: Empleado): void {
+    // implementar la lógica para editar un empleado
+  }
+
+  eliminarEmpleado(id: string): void {
+    // implementar la lógica para eliminar un empleado
+  }
+
+  displayedColumns: string[] = ['nombre', 'apellido', 'cargo', 'acciones'];
+
 }

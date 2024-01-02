@@ -7,6 +7,7 @@ import { EmpleadoFormComponent } from './components/empleado-form/empleado-form.
 const routes: Routes = [
   { path: 'empleados', component: EmpleadoListComponent },
   { path: 'crear-empleado', component: EmpleadoFormComponent },
+  { path: 'editar-empleado/:id', component: EmpleadoFormComponent}
   // Añadir más rutas según sea necesario con la evolucion 
 ];
 
